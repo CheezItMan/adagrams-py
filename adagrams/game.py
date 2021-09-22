@@ -30,7 +30,18 @@ LETTER_POOL = {
 }
 
 def draw_letters():
-    pass
+    available_letters = []
+    for letter, count in LETTER_POOL.items():
+        for i in range(count):
+            available_letters.append(letter)
+
+    hand = []
+    for i in range(10):
+        index = random.randint(0, len(available_letters) -1)
+        hand.append(available_letters.pop(index))
+
+    return hand
+
 
 def uses_available_letters(word, letter_bank):
     pass
