@@ -44,7 +44,21 @@ def draw_letters():
 
 
 def uses_available_letters(word, letter_bank):
-    pass
+    frequency_count = {}
+    for letter in letter_bank:
+        if frequency_count.get(letter):
+            frequency_count[letter] += 1
+        else: 
+            frequency_count[letter] = 1
+    
+    for letter in word:
+        if frequency_count.get(letter) == 0 \
+             or frequency_count.get(letter) == None:
+            return False
+        else:
+            frequency_count[letter] -= 1
+
+    return True
 
 def score_word(word):
     pass
